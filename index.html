@@ -233,7 +233,9 @@
         }
 
         function restartGame() {
-            document.getElementById('score-display').classList.add('hidden');
+            document.getElementById('high-score-sound').pause();
+            document.getElementById('high-score-sound').currentTime = 0;
+			document.getElementById('score-display').classList.add('hidden');
             document.getElementById('name-input').classList.remove('hidden');
         }
     </script>
