@@ -41,14 +41,14 @@
 <body>
     <h1>The LAME Game</h1>
     <div id="name-input">
-        <input type="text" id="player-name" placeholder="Enter your name" autofocus />
-        <button class="button" onclick="startGame()">Start</button>
+        <input class="input" type="text" id="player-name" placeholder="Enter your name" autofocus />
+        <button class="input button" onclick="startGame()">Start</button>
     </div>
     <div id="operation-selection" class="hidden">
-        <button class="button" onclick="selectOperation('addition')">Addition</button>
-        <button class="button" onclick="selectOperation('subtraction')">Subtraction</button>
-        <button class="button" onclick="selectOperation('multiplication')">Multiplication</button>
-        <button class="button" onclick="selectOperation('division')">Division</button>
+        <button class="input button" onclick="selectOperation('addition')">Addition</button>
+        <button class="input button" onclick="selectOperation('subtraction')">Subtraction</button>
+        <button class="input button" onclick="selectOperation('multiplication')">Multiplication</button>
+        <button class="input button" onclick="selectOperation('division')">Division</button>
     </div>
     <div id="difficulty-selection" class="hidden">
         <button class="button" onclick="startDifficulty('classic')">Classic</button>
@@ -56,15 +56,15 @@
     </div>
     <div id="game-interface" class="hidden">
         <div id="question"></div>
-        <input type="text" id="answer" autofocus />
-        <button class="button" onclick="submitAnswer()">Submit</button>
+        <input class="input" type="text" id="answer" autofocus />
+        <button class="input button" onclick="submitAnswer()">Submit</button>
         <div id="progress"></div>
         <div id="timer">Time left: <span id="time-left">10</span>s</div>
     </div>
     <div id="score-display" class="hidden">
         <h2>Your Score: <span id="score"></span></h2>
         <div id="high-score-message" class="hidden">New High Score!</div>
-        <button class="button" onclick="restartGame()">Play Again</button>
+        <button class="input button" onclick="restartGame()">Play Again</button>
     </div>
     <div id="leaderboard" class="hidden">
         <h2>Leaderboard</h2>
