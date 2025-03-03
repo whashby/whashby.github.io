@@ -40,7 +40,7 @@
 <body>
     <h1>The LAME Game</h1>
     <div id="name-input">
-        <input type="text" id="player-name" placeholder="Enter your name" />
+        <input type="text" id="player-name" placeholder="Enter your name" autofocus />
         <button class="button" onclick="startGame()">Start</button>
     </div>
     <div id="operation-selection" class="hidden">
@@ -55,7 +55,7 @@
     </div>
     <div id="game-interface" class="hidden">
         <div id="question"></div>
-        <input type="text" id="answer" />
+        <input type="text" id="answer" autofocus />
         <button class="button" onclick="submitAnswer()">Submit</button>
         <div id="progress"></div>
         <div id="timer">Time left: <span id="time-left">10</span>s</div>
@@ -103,6 +103,8 @@
         }
 
         function nextQuestion() {
+            document.getElementById('correct-sound').pause();
+            document.getElementById('correct-sound').currentTime = 0;
             let num1, num2;
             switch (operation) {
                 case 'addition':
@@ -159,6 +161,7 @@
             clearInterval(timer);
             const userAnswer = parseFloat(document.getElementById('answer').value);
             if (userAnswer === currentQuestion.answer) {
+                document.getElementById('timer-sound').pause();
                 document.getElementById('timer-sound').currentTime = 0;
                 document.getElementById('correct-sound').play();
                 score++;
@@ -233,7 +236,9 @@
         }
 
         function restartGame() {
-            document.getElementById('score-display').classList.add('hidden');
+            document.getElementById('high-score-sound').pause();
+            document.getElementById('high-score-sound').currentTime = 0;
+			document.getElementById('score-display').classList.add('hidden');
             document.getElementById('name-input').classList.remove('hidden');
         }
     </script>
