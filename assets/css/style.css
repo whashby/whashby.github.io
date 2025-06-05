@@ -1,10 +1,26 @@
 body {
+    background-color: #000000;
+    color: #ffffff;
     font-family: Arial, sans-serif;
-    font-size: 105%;
+    font-size: 125%;
     margin: 0;
     padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-attachment: fixed;
+    background-size: contain;
+    scroll-behavior: smooth;
+    scrollbar-base-color: #000000 !important;
+    scrollbar-face-color: #ffffff !important;
+    scrollbar-track-color: #000000 !important;
+    scrollbar-arrow-color: #ffffff !important;
+    /*
     background-attachment: fixed;
     background-image: linear-gradient(#ffffff, #d5d5d5);
+    */
 }
 
 body * {
@@ -12,43 +28,114 @@ body * {
     overflow-x: hidden;
 }
 
+footer {
+    border: solid #016bff 5px;
+    position: fixed;
+    top: 15vh;
+    right: 5vw;
+    width: auto;
+    padding: 0;
+}
+
+footer nav {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+footer nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.5em;
+}
+
+footer nav ul li {
+    display:inline-flex;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
-    color: #174f71;
+    color: #ffffff;
 }
 
 header {
-    background-color: #f5f5f5;
-    border-bottom: solid #377fa6 10px;
+    background-color: #000000;
+    border-bottom: solid #016bff 5px;
+    font-size: 14px;
     position: fixed;
+    padding: 1.0em;
     left: 0vw;
-    height: 15vh;
     width: 100vw;
     z-index: 999;
 }
 
-section {
-    display: table;
-    padding: 15vh;
+header img {
+    margin: 1em;
 }
 
-section hr {
-    border-top: medium dashed #fff;
+
+header nav {
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+}
+
+header nav ul {
     position: absolute;
-    width: 10vw;
-    left: 49.4vw;
+    right: 0;
+    top: 1.0em;
+    list-style: none;
+    display: flex;
+    height: 100%;
+    padding: 2.0em;
+    margin: 0;
+}
+
+header nav ul li {
+    margin-right: 1em;
+}
+
+ion-icon {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 0 0.5em;
+}
+
+
+nav ul li a,
+nav ul li a:hover,
+nav ul li a:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+
+section {
+    display: table;
+    padding: 0 10vh;
+    padding-top: 20vh;
+    width: 70%;
+    height: 80vh;
 }
 
 section#projects img {
-    width: 20vw;
+    width: 18vw;
     height: 11vw;
     margin: 10px 20px 10px 0;
     border: solid 1px #377fa6;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
+.bold,
+.strong {
+    font-weight: bold;
 }
 
 .content_wrapper {
@@ -60,59 +147,31 @@ footer {
     overflow: hidden;
 }
 
-.strong {
-    font-weight: bold;
+.flex {
+    float: left;
+    display: flex;
+    flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
 
-nav {
-    position: absolute;
-    margin-top: 1em;
-    margin-left: 8vw;
-    
-    img {
-        float: left;
-        margin-top: 5px;
-    }
-    
-  .nav {
-    list-style: none;
-    display: flex;
+.title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
 
-    li {
-      margin-right: 1em;
+.smalltext {
+        font-size: 0.7em;
+}
 
-      a {
-        text-decoration: none;
-        color: #000;
-        font-size: 24px;
-        font-weight: 400;
-        transition: all 0.5s ease-in-out;
-        position: relative;
-
-        &::before {
-          content: attr(data-item);
-          transition: 0.5s;
-          color: #174f71;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 0;
-          overflow: hidden;
-        }
-
-        &:hover {
-          &::before {
-            width: 100%;
-            transition: all 0.5s ease-in-out;
-          }
-        }
-        }
-        
-    }
-  }
+.specialheading {
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 0;
 }
 
 .subheading {
@@ -120,64 +179,99 @@ nav {
     font-size: 90%;
 }
 
+.specialheading,
 .subheading a {
     text-decoration: none;
     text-transform: uppercase;
 }
 
+.specialheading,
 .subheading,
 .subheading a, 
 .subheading a:hover, 
 .subheading a:visited {
-    color: #377fa6;
+    color: #00aaff;
 }
 
 
-
-
-
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 940px) {
-    body {
-        background-image: none;
-        overflow-x: hidden
-    }
-
-    header {
-        width: 100vw;
-        height: 15vh;
-    }
-
-    section {
-        width: 90vw;
-        border-right: none;
-        padding-top: 15vw;
-    }
-
-    section#projects img {
-        width: 75vw;
-        margin: 10px 20px 10px 0;
-    }
-
+/* Hide desktop content on small screens */
+.site-content {
+    display: block;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 1024px) {
+.desktop-message {
+    display: none;
+}
+
+/* When the screen width is 768px or less, hide the main content and show the message */
+@media (max-width: 768px) {
     body {
         background-image: none;
-        overflow-x: hidden
+        overflow-x: hidden;
     }
+
+    footer {
+        position: absolute !important;
+        top: 43vh;
+        border: none;
+        margin: 0 auto;
+        height: 10vh;
+        width: 100vw;
+    }
+
+    footer nav {
+        width: 30vw;
+        height: auto;
+        margin: 0 auto;
+        padding-left: 1.0em;
+    }
+
+    footer nav ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+    }
+
+    footer nav ul li {
+        display: inline-flex;
+    }
+
 
     header {
+        background-color: #000000;
+        border-bottom: solid #016bff 5px;
+        position: fixed;
+        top: 0;
+        left: 0vw;
         width: 100vw;
-        height: 12vh;
+        height: 10vh;
+        z-index: 999;
     }
 
-    section {
-        width: 90vw;
-        border-right: none;
-        padding-top: 15vw;
+    header img {
+        margin: 1em;
     }
 
+    header nav {
+        display: none;
+    }
+
+    ion-icon {
+        color: #ffffff;
+        font-size: 36px;
+        margin: 0 0.5em;
+    }
+
+
+    .site-content {
+        display: none;
+    }
+
+    .desktop-message {
+        display: block;
+        text-align: center;
+        padding-top: 20vh;
+        font-size: 1.2em;
+        color: #ffffff;
+    }
 }

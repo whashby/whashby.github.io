@@ -25,56 +25,185 @@
 </head>
 <body>
     <header>
+        <a href="./index.html"><img src="assets/img/Wafiq-Harris-Ashby-Nametag.png" height="50px"></a>
         <nav>
-            <img src="assets/img/logo.png" width="50px">
             <ul class="nav">
-                <li><a href="#bio" data-item="Bio">Bio</a></li>
-                <li><a href="#projects" data-item="Projects">Projects</a></li>
-                <li><a href="#contact" data-item="Contact">Contact</a></li>
+                <li><a class="nav-button" data-target="about">About</a></li>
+                <li><a class="nav-button" data-target="resume">Resume</a></li>
+                <li><a class="nav-button" data-target="projects">Projects</a></li>
+                <li><a class="nav-button" data-target="contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section id="bio">
-        <div class="content_wrapper">
-            <h1>Hello! I'm Wafiq Harris-Ashby.</h1>
-            <p class="subheading">Systems Administrator, Full-Stack Developer &amp; Cybersecurity Analyst</p>
-            <p>With over a decade of experience spanning web-application development, systems administration, and cybersecurity, I bring a robust skill set to the tech landscape. Since embarking on my professional journey in 2010, I have consistently delivered innovative solutions, streamlined system efficiencies, and fortified digital security frameworks.</p>
-            <h3>SKILLS</h3>
-            <ol>
-                <li><span class="strong">System Administration:</span><br />- AD, GPO, Print & Document Management, SSO/SAML</li>
-                <li><span class="strong">Network Configuration and Maintenance:</span><br />- Switching, VLAN, Firewall, DNS, DHCP, SMTP</li>
-                <li><span class="strong">VPN and WAN Implementation:</span><br />- Teleport, OpenVPN, IPSEC</li>
-                <li><span class="strong">IT Support and Helpdesk:</span><br />- JIRA, SysAid, Zendesk</li>
-                <li><span class="strong">CRM and Data Management Solutions:</span><br />- Apptivo</li>
-                <li><span class="strong">Application Development:</span><br />- Android (Java), Web Applications (AMP, WordPress)</li>
-                <li><span class="strong">Operating System Installation and Configuration:</span><br />- Windows, Ubuntu, OpenSUSE, Fedora, CentOS</li>
-            </ol>
-            <p>&nbsp;</p>
-            <p class="subheading">[ <a href="./assets/pdf/Wafiq Harris-Ashby-Resume.pdf" target="new">Download Resume</a> ]</p>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="content_wrapper">
-            <h1>My Latest Work</h1>
-            <a href="https://whashby.github.io/shooterX"><img src="assets/img/shooterX.png" alt="Shooter-X"></a>
-            <a href="https://whashby.github.io/thelamegame"><img src="assets/img/thelamegame.png" alt="The LAME Game"></a>
-            <a href="https://melbournebarbados.com"><img src="assets/img/melbournebarbados.png" alt="Melbourne Inn"></a>
-            <a href="https://psi.bb"><img src="assets/img/psibb.png" alt="Point Solutions Inc."></a>
-            <a href="https://baiabarbados.com"><img src="assets/img/baiabarbados.png" alt="Baia Barbados"></a>
-            <a href="https://fusionrooftop.com"><img src="assets/img/fusionrooftop.png" alt="FUSION Rooftop"></a>
-            <a href="https://hoperoadnazarene.com"><img src="assets/img/hoperoadnazarene.png" alt="Hope Road Church of the Nazarene"></a>
-            <a href="https://cimh.edu.bb"><img src="assets/img/cimhedubb.png" alt="Caribbean Institute for Meteorology and Hydrology"></a>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="content_wrapper">
-            <h1>Contact Me</h1>
-            <p class="subheading">I welcome your queries and feedback.</p>
-            <p>Feel free to send me your questions and/or comments. I typically respond within 24 hours but sometimes it could be longer due to a high volume of emails so I hope you don't mind the wait.</p>
-            <p>&nbsp;</p>
-            <p class="subheading">[ <a href="mailto:whashby@gmail.com">Send an Email</a> ]</p>
-        </div>
-    </section>
-<footer>&nbsp;</footer>
+    <div class="site-content">
+        <section id="intro" data-item="intro" class="hidden">
+            <h4 class="cd-headline clip home-headline">
+                I’m a
+                <span class="cd-words-wrapper single-headline" style="width: 174.726px;">
+                    <b class="is-visible">Developer</b>
+                    <b class="is-hidden">Systems Administrator</b>
+                    <b class="is-hidden">Cybersecurity Analyst</b>
+                </span>
+            </h4>
+        </section>
+        <section id="about" data-item="about">
+            <div class="content_wrapper">
+                <h1 class="title">About Me</h1>
+                <h2>I am Wafiq Harris-Ashby</h2>
+                <p class="subheading">Systems Administrator, Full-Stack Developer &amp; Cybersecurity Analyst</p>
+                <p>With over a decade of experience spanning web-application development, systems administration, and cybersecurity, I bring a robust skill set to the tech landscape. Since embarking on my professional journey in 2010, I have consistently delivered innovative solutions, streamlined system efficiencies, and fortified digital security frameworks.</p>
+                <p>&nbsp;</p>
+            </div>
+        </section>
+        <section id="resume" data-item="resume" class="hidden">
+            <div class="content_wrapper">
+                <h1 class="title">My Resume</h1>
+                <h3 class="specialheading">Professional Summary</h3>
+                <p>IT professional with 15+ years of experience delivering innovative technical solutions and strategic leadership. Skilled in resolving complex hardware, software, and network issues, with a strong background in cybersecurity and IT management. Proven ability to streamline operations, enhance user experiences, and drive business success. Currently advancing my expertise with a BS in Computing and multiple certifications in cybersecurity and IT management.</p>
+                <h3 class="specialheading">Key Skills</h3>
+                <div>
+                    <ol class="flex">
+                        <li>IT Team Leadership</li>
+                        <li>Systems & Network Administration</li>
+                        <li>Consulting</li>
+                    </ol>
+                    <ol class="flex">
+                        <li>Cybersecurity</li>
+                        <li>Access Management</li>
+                        <li>POS & ERP</li>
+                    </ol>
+                    <ol class="flex">
+                        <li>Technical Strategy</li>
+                        <li>Technical Support</li>
+                        <li>Helpdesk Operations</li>
+                    </ol>
+                </div>
+                <h3 class="specialheading">Experience</h3>
+                <p>
+                    <span class="bold">IT Support Analyst</span><br />Bryden Stokes Ltd., <span class="smalltext">
+                        <em>September 2024 - March 2025</em><br />
+                        Reported to the Sector Head for IT and the CFO while providing Tier1 Support to 300-400 employees.
+                    </span>
+                </p>
+                <ol>
+                    <li>- Provided rapid first-level support to end-users for hardware, software, and network issues.</li>
+                    <li>- Diagnosed and troubleshooted technical issues, including account setup and network configuration.</li>
+                    <li>- Resolved issues related to operating systems, software, and hardware within 2-5 minutes.</li>
+                    <li>- Documented support activities, including the nature of problems and their resolution.</li>
+                    <li>- Performed routine maintenance tasks on computer systems and networks.</li>
+                    <li>- Provided training and guidance to users on software applications and IT processes.</li>
+                    <li>- Worked closely with other IT team members to resolve complex issues.</li>
+                    <li>- Collaborated with other departments to understand their IT needs and provide appropriate solutions.</li>
+                </ol>
+
+
+
+                <p>
+                    <span class="bold">General Manager [IT]</span><br />Point Solutions Inc., <span class="smalltext">
+                        <em>June 2017 - March 2024</em><br />
+                        Responsible for technical leadership, project management, security compliance, solution architecting and Tier4 support.
+                    </span>
+                </p>
+                <ol>
+                    <li>- Mentored IT team and provided one-on-one coaching to team members when necessary.</li>
+                    <li>- Developed data security and retention solutions for clients based on legal requirements.</li>
+                    <li>- Provided technical consultation to clients regarding best practices for the implementation and use of hardware and software solutions. </li>
+                    <li>- Provided consultation on organizational structure and training procedures to obtain and maintain high operational efficiency. </li>
+                    <li>- Co-ordinated upgrade and maintenance services of network infrastructure for clients.</li>
+                    <li>- Developed WAN & VPN based solutions for multi-site communication and external users. </li>
+                    <li>- Developed network access and protection policies for clients.</li>
+                </ol>
+
+                <p>
+                    <span class="bold">IT Consultant</span><br />Caribbean Institute for Meteorology &amp; Hydrology, <span class="smalltext">
+                        <em>April 2010 - August 2016</em><br />
+                        Responsible for application development and database management; provided Tier1 support.
+                    </span>
+                </p>
+                <ol>
+                    <li>- Developed and maintained web-based applications.</li>
+                    <li>- Provided first-level support to end-users for hardware, software, and network issues.</li>
+                    <li>- Performed daily systems and network administrative tasks.</li>
+                    <li>- Worked closely with other IT team members to resolve complex issues.</li>
+                    <li>- Worked closely with other staff in the development and automation of data modelling products for online access.</li>
+                </ol>
+
+                <h3 class="specialheading">Education</h3>
+                <p><span class="bold">Edinburgh Napier University</span> - BS Computing</p>
+                <h4 class="specialheading">Certificates &amp; Licenses</h4>
+                <p class="strong">University of Illinois Urbana-Champaign</p>
+                <ol>
+                    <li>Managing the Organization</li>
+                    <li>Designing the Organization</li>
+                    <li>Leading Teams: Building Effective Team Cultures</li>
+                    <li>Leading Teams: Developing as a Leader</li>
+                </ol>
+
+                <p class="strong">ISC2</p>
+                <ol>
+                    <li>Systems Security Certified Practitioner (SSCP)</li>
+                    <li>Certified in Cyber Security</li>
+                </ol>
+                <p class="strong">IBM</p>
+                <ol>
+                    <li>Cybersecurity Analyst</li>
+                    <li>Cybersecurity Compliance Framework, Standards & Regulations</li>
+                </ol>
+
+                <p class="strong">CISCO</p>
+                <ol>
+                    <li>Ethical Hacker</li>
+                    <li>Endpoint Security</li>
+                    <li>Computer Hardware Basics</li>
+                </ol>
+                <p class="strong">Google</p>
+                <ol>
+                    <li>Google IT Support</li>
+                </ol>
+                <p>&nbsp;</p>
+                <p class="subheading">[ <a href="./assets/pdf/Wafiq Harris-Ashby-Resume.pdf" target="new">Download Resume</a> ]</p>
+            </div>
+        </section>
+        <section id="projects" data-item="projects" class="hidden">
+            <div class="content_wrapper">
+                <h1 class="title">My Work</h1>
+                <a href="https://whashby.github.io/shooterX"><img src="assets/img/shooterX.png" alt="Shooter-X"></a>
+                <a href="https://whashby.github.io/thelamegame"><img src="assets/img/thelamegame.png" alt="The LAME Game"></a>
+                <a href="https://melbournebarbados.com"><img src="assets/img/melbournebarbados.png" alt="Melbourne Inn"></a>
+                <a href="https://psi.bb"><img src="assets/img/psibb.png" alt="Point Solutions Inc."></a>
+                <a href="https://baiabarbados.com"><img src="assets/img/baiabarbados.png" alt="Baia Barbados"></a>
+                <a href="https://fusionrooftop.com"><img src="assets/img/fusionrooftop.png" alt="FUSION Rooftop"></a>
+                <a href="https://hoperoadnazarene.com"><img src="assets/img/hoperoadnazarene.png" alt="Hope Road Church of the Nazarene"></a>
+                <a href="https://cimh.edu.bb"><img src="assets/img/cimhedubb.png" alt="Caribbean Institute for Meteorology and Hydrology"></a>
+            </div>
+        </section>
+        <section id="contact" data-item="contact" class="hidden">
+            <div class="content_wrapper">
+                <h1 class="title">Contact Me</h1>
+                <p class="subheading">I welcome your queries and feedback.</p>
+                <p>Feel free to send me your questions and/or comments. I typically respond within 24 hours but sometimes it could be longer due to a high volume of emails so I hope you don't mind the wait.</p>
+                <p>&nbsp;</p>
+                <p class="subheading">[ <a href="mailto:wafiq.harris-ashby@outlook.com">Send an Email</a> ]</p>
+            </div>
+        </section>
+        <script src="assets/js/script.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </div>
+    <div class="desktop-message">
+        <img src="assets/img/Wafiq-Harris-Ashby-Portfolio-Portrait.png" width="200" />
+        <p>&nbsp;</p>
+        <p>
+            For the best experience, please view this page on a desktop.
+        </p>
+    </div>
+    <footer>
+        <nav id="social">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/wafiq-harris-ashby" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                <li><a href="https://github.com/whashby" target="_blank"><ion-icon name="logo-github"></ion-icon></a></li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>
