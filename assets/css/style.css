@@ -1,276 +1,295 @@
+/* Define CSS variables for easy adjustments */
+:root {
+  --primary-bg: #000;
+  --primary-color: #fff;
+  --accent-color: #016bff;
+  --font-family: Arial, sans-serif;
+  --base-font-size: clamp(1rem, 1.25vw, 1.5rem);
+  --header-height: 11vh;
+  --header-height-mobile: 10vh;
+}
+
+/* Global styles */
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    font-size: 125%;
-    margin: 0;
-    padding-top: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    background-image: url('../img/background.png');
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-attachment: fixed;
-    background-size: contain;
-    scroll-behavior: smooth;
-    scrollbar-base-color: #000000 !important;
-    scrollbar-face-color: #ffffff !important;
-    scrollbar-track-color: #000000 !important;
-    scrollbar-arrow-color: #ffffff !important;
-    /*
-    background-attachment: fixed;
-    background-image: linear-gradient(#ffffff, #d5d5d5);
-    */
+  background-color: var(--primary-bg);
+  color: var(--primary-color);
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url('../img/background.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-attachment: fixed;
+  /* Use cover for full-bleed responsive background */
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling (modern WebKit approach) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 6px;
+  border: 3px solid var(--primary-bg);
 }
 
 body * {
-    font-weight: normal;
-    overflow-x: hidden;
+  font-weight: normal;
+  overflow-x: hidden;
 }
 
-footer {
-    border: solid #016bff 5px;
-    position: fixed;
-    top: 15vh;
-    right: 5vw;
-    width: auto;
-    padding: 0;
-}
-
-footer nav {
-    width: 100%;
-    height: auto;
-    margin: 0;
-}
-
-footer nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    padding: 0 0.5em;
-}
-
-footer nav ul li {
-    display:inline-flex;
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-}
-
+/* Header styling */
 header {
-    background-color: #000000;
-    border-bottom: solid #016bff 5px;
-    font-size: 14px;
-    position: fixed;
-    padding: 1.0em;
-    left: 0vw;
-    width: 100vw;
-    z-index: 999;
+  background-color: var(--primary-bg);
+  border-bottom: 5px solid var(--accent-color);
+  font-size: 14px;
+  position: fixed;
+  padding: 1em;
+  left: 0;
+  height: var(--header-height);
+  width: 100vw;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header img {
-    margin: 1em;
+  margin: 0 1em;
+  height: calc(var(--header-height) - 3em);
 }
 
-
 header nav {
-    width: 100%;
-    height: 10vh;
-    position: fixed;
-    top: 0;
-    overflow: hidden;
+  width: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 header nav ul {
-    position: absolute;
-    right: 0;
-    top: 1.0em;
-    list-style: none;
-    display: flex;
-    height: 100%;
-    padding: 2.0em;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 header nav ul li {
-    margin-right: 1em;
+  margin-right: 1em;
 }
 
 ion-icon {
-    color: #ffffff;
-    font-size: 26px;
-    margin: 0 0.5em;
+  color: var(--primary-color);
+  font-size: 26px;
+  margin: 0 0.5em;
 }
 
-
+/* Navigation links */
 nav ul li a,
 nav ul li a:hover,
 nav ul li a:visited {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #ffffff !important;
-    cursor: pointer;
-    font-weight: 400;
-    transition: all 0.5s ease-in-out;
-    position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--primary-color) !important;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.5s ease-in-out;
+  position: relative;
 }
 
-
+/* Section styling with flexbox */
 section {
-    display: table;
-    padding: 0 10vh;
-    padding-top: 20vh;
-    width: 70%;
-    height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20vh 10vw;
+  width: 100%;
+  min-height: 80vh;
 }
 
+/* Projects section images */
 section#projects img {
-    width: 18vw;
-    height: 11vw;
-    margin: 10px 20px 10px 0;
-    border: solid 1px #377fa6;
+  width: 100%;
+  max-width: 18vw;
+  height: auto;
+  margin: 10px 20px 10px 0;
+  border: 1px solid #377fa6;
 }
 
+/* Utility classes */
 .bold,
 .strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .content_wrapper {
-    display: table-cell;
-    padding: 2rem;
-    min-height: 85vh;
-    width: 79.5vw;
-    vertical-align: middle;
-    overflow: hidden;
+  padding: 2rem;
+  min-height: 85vh;
+  width: 100%;
+  max-width: 79.5vw;
 }
 
 .flex {
-    float: left;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .title {
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0.5em;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 .smalltext {
-        font-size: 0.7em;
+  font-size: 0.7em;
 }
 
 .specialheading {
-    font-weight: bold;
-    margin-top: 2em;
-    margin-bottom: 0;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: 0;
 }
 
 .subheading {
-    margin-top: -2.5vh;
-    font-size: 90%;
+  margin-top: -2.5vh;
+  font-size: 90%;
 }
 
 .specialheading,
 .subheading a {
-    text-decoration: none;
-    text-transform: uppercase;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .specialheading,
 .subheading,
-.subheading a, 
-.subheading a:hover, 
+.subheading a,
+.subheading a:hover,
 .subheading a:visited {
-    color: #00aaff;
+  color: #00aaff;
 }
 
-/* Hide desktop content on small screens */
-.site-content {
-    display: block;
+/* Footer styling */
+footer {
+  border: 5px solid var(--accent-color);
+  position: fixed;
+  top: 15vh;
+  right: 5vw;
+  width: auto;
+  padding: 0;
 }
 
-.desktop-message {
-    display: none;
+footer nav {
+  display: flex;
+  width: 100%;
+  margin: 0;
 }
 
-/* When the screen width is 768px or less, hide the main content and show the message */
+footer nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0 0.5em;
+  margin: 0;
+}
+
+footer nav ul li {
+  display: inline-flex;
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 1024px) {
+  header {
+    height: var(--header-height-mobile);
+    padding: 0.75em;
+  }
+  
+  header img {
+    height: calc(var(--header-height-mobile) - 2em);
+  }
+  
+  section {
+    padding: 15vh 5vw;
+  }
+}
+
+/* Mobile-specific styles */
 @media (max-width: 768px) {
-    body {
-        background-image: none;
-        overflow-x: hidden;
-    }
+  /* Remove background image for performance */
+  body {
+    background-image: none;
+  }
 
-    footer {
-        position: absolute !important;
-        top: 43vh;
-        border: none;
-        margin: 0 auto;
-        height: 10vh;
-        width: 100vw;
-    }
+  footer {
+    position: absolute !important;
+    top: 43vh;
+    border: none;
+    margin: 0 auto;
+    height: 10vh;
+    width: 100vw;
+  }
 
-    footer nav {
-        width: 30vw;
-        height: auto;
-        margin: 0 auto;
-        padding-left: 1.0em;
-    }
+  footer nav {
+    width: 30vw;
+    padding-left: 1em;
+  }
 
-    footer nav ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-    }
+  header {
+    border-bottom: 5px solid var(--accent-color);
+    height: var(--header-height-mobile);
+    padding: 1em;
+  }
 
-    footer nav ul li {
-        display: inline-flex;
-    }
+  header nav {
+    display: none;
+  }
 
+  ion-icon {
+    font-size: 36px;
+  }
 
-    header {
-        background-color: #000000;
-        border-bottom: solid #016bff 5px;
-        position: fixed;
-        top: 0;
-        left: 0vw;
-        width: 100vw;
-        height: 10vh;
-        z-index: 999;
-    }
+  .site-content {
+    display: none;
+  }
 
-    header img {
-        margin: 1em;
-    }
+  .desktop-message {
+    display: block;
+    text-align: center;
+    padding-top: 20vh;
+    font-size: 1.2em;
+    color: var(--primary-color);
+  }
+}
 
-    header nav {
-        display: none;
-    }
+/* Extra tweaks for extra small devices */
+@media (max-width: 480px) {
+  header {
+    padding: 0.5em;
+  }
 
-    ion-icon {
-        color: #ffffff;
-        font-size: 36px;
-        margin: 0 0.5em;
-    }
+  .title {
+    font-size: 2em;
+  }
 
+  .content_wrapper {
+    padding: 1rem;
+  }
 
-    .site-content {
-        display: none;
-    }
-
-    .desktop-message {
-        display: block;
-        text-align: center;
-        padding-top: 20vh;
-        font-size: 1.2em;
-        color: #ffffff;
-    }
+  footer nav {
+    width: 50vw;
+  }
 }
