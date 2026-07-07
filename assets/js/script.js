@@ -1,51 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll("header nav a");
+  const sections = document.querySelectorAll("main section");
 
-    const navButtons = document.querySelectorAll(".nav-button");
-    const introSection = document.getElementById("intro");
-    const aboutSection = document.getElementById("about");
-    const contactSection = document.getElementById("contact");
-    const projectsSection = document.getElementById("projects");
-    const resumeSection = document.getElementById("resume");
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href").replace("#", "");
 
-    const EVENT_CLICK = "click";
+      sections.forEach(section => {
+        section.style.display = section.id === targetId ? "block" : "none";
+      });
 
-    const updateElementVisibility = (element, isVisible) => {
-        element.classList.toggle("hidden", !isVisible);
-    };
-
-    navButtons.forEach(button => {
-        button.addEventListener(EVENT_CLICK, () => {
-            const target = button.getAttribute("data-target");
-
-            // Hide all sections first
-            updateElementVisibility(introSection, false);
-            updateElementVisibility(aboutSection, false);
-            updateElementVisibility(contactSection, false);
-            updateElementVisibility(projectsSection, false);
-            updateElementVisibility(resumeSection, false);
-
-            // Show the target section
-            switch (target) {
-                case "intro":
-                    updateElementVisibility(introSection, true);
-                    break;
-                case "about":
-                    updateElementVisibility(aboutSection, true);
-                    break;
-                case "contact":
-                    updateElementVisibility(contactSection, true);
-                    break;
-                case "projects":
-                    updateElementVisibility(projectsSection, true);
-                    break;
-                case "resume":
-                    updateElementVisibility(resumeSection, true);
-                    break;
-                default:
-                    console.warn(`Unknown target: ${target}`);
-            }
-
-
-        });
+      // Smooth scroll to section
+      document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     });
+  });
+
+  // Default: show first section
+  sections.forEach((section, index) => {
+    section.style.display = index === 0 ? "block" : "none";
+  });
 });
