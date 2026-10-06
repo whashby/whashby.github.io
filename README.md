@@ -20,17 +20,17 @@ The site checks availability and turns each “Request download” link into a d
 
 ## Contact form setup
 
-Browser JavaScript submits to `backend/worker.mjs`. The Worker validates the message and a Cloudflare Turnstile challenge, then uses Brevo to send email. Credentials stay on Cloudflare. Delivery is disabled until configured; the public email link remains usable.
+Browser JavaScript submits to `backend/worker.mjs`. The Worker validates the message and a Cloudflare Turnstile challenge, then uses Brevo’s SMTP relay over mandatory STARTTLS on port 587 to send email. Credentials stay on Cloudflare. Delivery is disabled until configured; the public email link remains usable.
 
-1. Create a Brevo account, verify `wafiq.harris-ashby@outlook.com` as a sender, and activate transactional email (account review may be required). Create an API key. No owned domain is configured here. Brevo currently documents temporary sender-address replacement for free-email senders; confirm the account supports this before going live. If Brevo requires a verified domain for your account, use a hosted form relay or add an owned domain rather than spoofing Outlook.
+1. Create a Brevo account, verify `wafiq.harris-ashby@outlook.com` as a sender, and activate transactional email (account review may be required). Generate an SMTP key in Brevo’s SMTP & API settings. The provided SMTP login is already set in `backend/wrangler.toml`. SMTP keys and API keys are different; use the SMTP key here. No owned domain is configured here. Brevo currently documents temporary sender-address replacement for free-email senders; confirm the account supports this before going live. If Brevo requires a verified domain for your account, use a hosted form relay or add an owned domain rather than spoofing Outlook.
 2. Create a Turnstile widget in Cloudflare for `whashby.github.io`. Copy the public site key into `assets/js/config.js`.
 3. In `backend/`, run `npx wrangler login`. `FROM_EMAIL` and `TO_EMAIL` are already set to your Outlook address in `wrangler.toml`; the sender must be verified in Brevo.
-4. Run `npx wrangler secret put BREVO_API_KEY` and `npx wrangler secret put TURNSTILE_SECRET_KEY`. Paste credentials only at the prompts; never into this repository.
+4. Run `npx wrangler secret put BREVO_SMTP_KEY` and `npx wrangler secret put TURNSTILE_SECRET_KEY`. Paste credentials only at the prompts; never into this repository.
 5. Run `npx wrangler deploy`. Copy the returned HTTPS Worker URL, with `/contact` appended, into `contactEndpoint` in `assets/js/config.js`.
 6. For a custom site domain, update `ALLOWED_ORIGINS` (comma-separated exact origins) and Turnstile’s allowed hostnames. Origin checks are browser controls; Turnstile verification provides the bot protection. The Worker enforces body size and field limits and does not log message content.
 7. Test from the deployed site: invalid fields, security challenge, successful message, and arrival in Outlook (including junk). Automated tests mock provider responses; live delivery requires the configured services. Consider Cloudflare rate limiting for additional abuse protection if traffic requires it.
 
-Official setup references: [Worker secrets](https://developers.cloudflare.com/workers/configuration/secrets/), [Turnstile validation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/), [Brevo email API](https://developers.brevo.com/reference/send-transac-email), [Brevo sender requirements](https://help.brevo.com/hc/en-us/articles/14925263522578-Comply-with-Gmail-Yahoo-and-Microsoft-s-requirements-for-email-senders).
+Official setup references: [Worker secrets](https://developers.cloudflare.com/workers/configuration/secrets/), [Turnstile validation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/), [Brevo SMTP relay](https://developers.brevo.com/docs/smtp-integration), [Cloudflare TCP sockets](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/), [Brevo sender requirements](https://help.brevo.com/hc/en-us/articles/14925263522578-Comply-with-Gmail-Yahoo-and-Microsoft-s-requirements-for-email-senders).
 
 ## GitHub Pages
 
@@ -38,7 +38,7 @@ Publish from the root of your selected branch in repository Settings → Pages. 
 
 ## Checks
 
-Run `node --test tests/contact.test.mjs`. The tests cover validation, CORS, challenge rejection, provider failure, payload limits and confirmed success without sending real email.
+Run `node --test tests/*.test.mjs`. The tests cover validation, CORS, challenge rejection, provider failure, payload limits and confirmed success without sending real email.
 
 ## Content review
 

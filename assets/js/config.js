@@ -1,7 +1,7 @@
 // Public configuration. Never include secret keys here.
 window.PORTFOLIO_CONFIG = {
-  contactEndpoint: '',
-  turnstileSiteKey: '',
+  contactEndpoint: 'https://wafiq-portfolio-contact.whashby.workers.dev/contact',
+  turnstileSiteKey: '0x4AAAAAAFPi8Z2UqYy5_zlT',
   plugins: [
     {name: 'AutoDash', icon: 'AD', category: 'WORDPRESS', description: 'A custom WordPress plugin by Wafiq Harris-Ashby.', file: 'autodash.zip'},
     {name: 'AutoDesk', icon: 'A⌘', category: 'WORDPRESS', description: 'A custom WordPress plugin by Wafiq Harris-Ashby.', file: 'autodesk.zip'},

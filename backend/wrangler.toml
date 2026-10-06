@@ -8,3 +8,5 @@ ALLOWED_ORIGINS = "https://whashby.github.io"
 TO_EMAIL = "wafiq.harris-ashby@outlook.com"
 FROM_EMAIL = "wafiq.harris-ashby@outlook.com"
 # Verify this sender in Brevo and activate transactional sending before deployment.
+
+BREVO_SMTP_LOGIN = "bcd2bc001@smtp-brevo.com"

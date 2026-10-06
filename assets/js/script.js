@@ -31,7 +31,7 @@ form.addEventListener('submit',async e=>{
  e.preventDefault();if(!endpoint||!form.reportValidity())return;
  const data=Object.fromEntries(new FormData(form));data.token=window.turnstile?.getResponse();if(!data.token){status.textContent='Please complete the security check.';return;}
  submit.disabled=true;form.setAttribute('aria-busy','true');status.textContent='Sending your message…';
- try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:AbortSignal.timeout(15000)});const result=await response.json();if(!response.ok||!result.ok)throw new Error('Delivery failed');form.reset();status.textContent='Thanks — your message has been sent. I’ll get back to you by email.';}
+ try{const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:AbortSignal.timeout(25000)});const result=await response.json();if(!response.ok||!result.ok)throw new Error('Delivery failed');form.reset();status.textContent='Thanks — your message has been sent. I’ll get back to you by email.';}
  catch{status.textContent='Your message could not be confirmed. Your text is still here; please try again or use the email link.';}
  finally{form.removeAttribute('aria-busy');window.turnstile?.reset();submit.disabled=true;}
 });
