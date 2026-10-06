@@ -22,6 +22,7 @@ export async function sendSmtp(env, message, connectOverride) {
   socket.closed.catch(() => {});
   let reader = socket.readable.getReader();
   let writer = socket.writable.getWriter();
+  let stage = 'connect';
   let pending = '';
   const decoder = new TextDecoder();
   let timer;
@@ -45,7 +46,7 @@ export async function sendSmtp(env, message, connectOverride) {
       if (!match || (code && code !== match[1])) throw new Error('Invalid SMTP response');
       code = match[1];
       if (match[2] === ' ') {
-        if (!expected.includes(Number(code))) throw new Error('SMTP request rejected');
+        if (!expected.includes(Number(code))) { const error = new Error('SMTP request rejected'); error.smtpCode = Number(code); throw error; }
         return;
       }
     }
@@ -55,6 +56,7 @@ export async function sendSmtp(env, message, connectOverride) {
     await Promise.race([(async () => {
       await socket.opened;
       await response([220]);
+      stage = 'starttls';
       await command('EHLO whashby.github.io', [250]);
       await command('STARTTLS', [220]);
       reader.releaseLock(); writer.releaseLock();
@@ -64,16 +66,23 @@ export async function sendSmtp(env, message, connectOverride) {
       pending = ''; // Discard plaintext state before using the encrypted connection.
       await socket.opened;
       await command('EHLO whashby.github.io', [250]);
+      stage = 'authentication';
       await command('AUTH LOGIN', [334]);
       await command(base64(env.BREVO_SMTP_LOGIN), [334]);
       await command(base64(env.BREVO_SMTP_KEY), [235]);
+      stage = 'sender';
       await command(`MAIL FROM:<${message.from}>`, [250]);
+      stage = 'recipient';
       await command(`RCPT TO:<${message.to}>`, [250, 251]);
+      stage = 'message';
       await command('DATA', [354]);
       // MIME body is base64, so it cannot contain an SMTP terminator or inject commands.
       await writer.write(encoder.encode(payload + '.\r\n'));
       await response([250]); // Report success only after relay accepts message data.
     })(), timeout]);
+  } catch (error) {
+    error.smtpStage = stage;
+    throw error;
   } finally {
     clearTimeout(timer);
     // Closing after DATA acceptance avoids treating a failed QUIT as delivery failure.
