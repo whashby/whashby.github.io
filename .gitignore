@@ -5,3 +5,10 @@ Gemfile.lock
 .jekyll-cache
 /.vs
 test.html
+
+.dev.vars
+.env
+.env.*
+.wrangler/
+node_modules/
+tmp/
