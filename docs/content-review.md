@@ -11,3 +11,5 @@ Reviewed all six PDFs supplied in Downloads. Their contents were treated as sour
 - Use the consistent Outlook email. Avoid publishing residential address, referee details and conflicting phone numbers on the page.
 - Retained repository resume at assets/pdf/Wafiq-Harris-Ashby-Resume.pdf rather than exposing all application documents. It has personal contact details; confirm it is the intended public download.
 - Plugin names come from the user. AutoDash and AutoDesk purposes, release versions, licenses, screenshots and compatibility await actual packages; descriptions remain neutral. No ZIPs were present at implementation time.
+
+Website gallery: Baia Barbados, Fusion Rooftop, Point Solutions and Hope Road Church are restored from index.html in historical commit 50a241e. CIMH and Caribbean RCC are supported by the detailed resume. Existing repository screenshots are used as historical previews. Other screenshot filenames alone are not treated as authorship evidence.
