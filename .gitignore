@@ -12,3 +12,4 @@ test.html
 .wrangler/
 node_modules/
 tmp/
+scripts/create-badges-signature.cjs
